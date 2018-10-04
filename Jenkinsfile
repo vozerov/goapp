@@ -4,12 +4,12 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh go build main.go
+        sh "go build main.go"
       }
     }
     stage('Test') {
       steps {
-        sh go test
+        sh "go test"
       }
     }
     stage('Deploy') {
