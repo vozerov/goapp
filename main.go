@@ -7,7 +7,7 @@ import (
 	"strconv"
 )
 
-func handler(w http.ResponseWriter, r *http.Request {
+func handler(w http.ResponseWriter, r *http.Request) {
   keys, ok := r.URL.Query()["a"]
   if !ok || len(keys[0]) < 1 {
       log.Println("Url Param 'a' is missing")
