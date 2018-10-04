@@ -41,5 +41,5 @@ func main() {
 
 func sum (a, b int) int {
   t := a + b
-  return t - 1
+  return t
 }
