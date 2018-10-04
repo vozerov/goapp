@@ -19,10 +19,8 @@ pipeline {
     }
     stage('Deploy') {
       steps {
-        script {
-          rsync -av main root@goapp.srwx.net:
-          ssh root@goapp.srwx.net -l root '(pkill -9 goapp || true) && /root/main >/tmp/goapp.log 2>&1 &'
-        }
+        sh "rsync -av main root@goapp.srwx.net:"
+        sh "ssh root@goapp.srwx.net -l root '(pkill -9 goapp || true) && /root/main >/tmp/goapp.log 2>&1 &'"
       }
     }
   }
