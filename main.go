@@ -27,6 +27,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
   }
   b, err := strconv.Atoi(keys[0])
   if err != nil {
+    log.Println("Bad number!")
     return
   }
 
