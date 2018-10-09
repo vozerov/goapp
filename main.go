@@ -17,6 +17,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
   a, err := strconv.Atoi(keys[0])
 
   if err != nil {
+    log.Println("Bad number in A!")
     return
   }
 
@@ -27,11 +28,11 @@ func handler(w http.ResponseWriter, r *http.Request) {
   }
   b, err := strconv.Atoi(keys[0])
   if err != nil {
-    log.Println("Bad number!")
+    log.Println("Bad number in B!")
     return
   }
 
-  fmt.Fprintf(w, "%d + %d = %d", a, b, sum(a,a))
+  fmt.Fprintf(w, "%d + %d = %d", a, b, sum(a,b))
 }
 
 func main() {
