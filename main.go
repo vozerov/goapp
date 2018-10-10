@@ -1,22 +1,21 @@
 package main
 
 import (
-    "fmt"
-    "log"
-    "net/http"
-	"strconv"
+  "fmt"
+  "log"
+  "net/http"
+  "strconv"
 )
 
 func handler(w http.ResponseWriter, r *http.Request) {
   keys, ok := r.URL.Query()["a"]
   if !ok || len(keys[0]) < 1 {
-      log.Println("Url Param 'a' is missing")
-      return
+    log.Println("Url Param 'a' is missing")
+    return
   }
-
   a, err := strconv.Atoi(keys[0])
-
   if err != nil {
+    log.Println("Bad 'a' value")
     return
   }
 
@@ -27,14 +26,19 @@ func handler(w http.ResponseWriter, r *http.Request) {
   }
   b, err := strconv.Atoi(keys[0])
   if err != nil {
-    log.Println("Bad number!")
+    log.Println("Bad 'b' value")
     return
   }
 
   fmt.Fprintf(w, "%d + %d = %d", a, b, sum(a,b))
 }
 
+func favicon_handler(w http.ResponseWriter, r *http.Request) {
+  return
+}
+
 func main() {
+    http.HandleFunc("/favicon.ico", favicon_handler)
     http.HandleFunc("/", handler)
     log.Fatal(http.ListenAndServe(":8080", nil))
 }
