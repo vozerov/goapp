@@ -1,5 +1,5 @@
 ---
-- host: backend
+- hosts: backend
   become: true
   tasks:
     - name: Stopping goapp
