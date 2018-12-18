@@ -1,0 +1,2 @@
+[backend]
+77.244.213.57 ansible_ssh_user=deploy

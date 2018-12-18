@@ -1,0 +1,12 @@
+---
+- host: backend
+  become: true
+  tasks:
+    - name: Stopping goapp
+      service: name=goapp state=stopped
+
+    - name: Copying files
+      copy: src=goapp_build dest=/opt/goapp/goapp_build mode=0755
+
+    - name: Starting goapp
+      service: name=goapp state=started
