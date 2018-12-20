@@ -30,6 +30,4 @@ md5deep -r $dpath > $dpath/DEBIAN/md5sums
 
 fakeroot dpkg-deb --build $dpath
 
-mv $dpath.deb web-calc.deb
-
 exit 0
